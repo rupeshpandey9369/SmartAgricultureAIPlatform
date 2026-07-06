@@ -46,53 +46,53 @@ Smart Agriculture AI Platform solves 7 critical problems faced by Indian farmers
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🦠 AI Crop Disease Detection
+###  AI Crop Disease Detection
 - Upload a leaf photo → get disease name, confidence score, symptoms, treatment, and prevention
 - Model: **EfficientNetB0** fine-tuned on PlantVillage dataset
 - **95.6% validation accuracy** on 15 disease classes (Pepper, Potato, Tomato)
 - Training: Transfer learning with 2-phase fine-tuning on Google Colab T4 GPU
 - Diagnosis history saved per user
 
-### 🌦️ Weather Intelligence
+### 1. Weather Intelligence
 - Real-time weather data via OpenWeatherMap API
 - 5-day forecast with rain probability
 - Farming-specific alerts: heatwave, frost, rain, disease risk, high wind
 - "Use My Location" GPS support
 
-### 🌱 Fertilizer Recommendation
+### 2. Fertilizer Recommendation
 - Rule-based NPK calculator using standard agronomy tables
 - Supports 11 crop types and 7 soil types
 - Outputs: Urea, DAP, MOP quantities + application timing
 - Autofill from saved farm profiles
 
-### 📊 Crop Yield Prediction
+### 3. Crop Yield Prediction
 - Model: **Random Forest** trained on FAO crop yield dataset (28,242 samples)
 - **R² = 0.985** accuracy
 - Inputs: Crop, Region, Year, Rainfall, Pesticides, Temperature
 - Output: Predicted yield in hg/ha, kg/ha, tonnes/acre + confidence interval
 
-### 💹 Market Price Dashboard
+### 4. Market Price Dashboard
 - 14 crops × 15 Indian mandis
 - 30-day price trend chart
 - 7-day price prediction with best selling date recommendation
 - Tab-based UI: Mandi Prices | 30-Day Trend | 7-Day Forecast
 
-### 📋 Government Schemes Recommender
+### 5. Government Schemes Recommender
 - 8 major schemes: PM-KISAN, Fasal Bima, Kisan Credit Card, e-NAM, etc.
 - Eligibility filtering by farm area
 - **Apply Now** button linking to official government portals
 - Required documents checklist
 
-### 🤖 KisanBot — AI Farming Assistant
+### 6. KisanBot — AI Farming Assistant
 - Bilingual: **Hindi + English** support
 - Powered by **Groq LLM API** (LLaMA 3.1-8B-Instant)
 - Agriculture-specific system prompt
 - Conversation history maintained
 - Quick suggestion chips for common questions
 
-### 👨‍🌾 Farm Manager
+### 7. Farm Manager
 - Multi-farm support per user account
 - Add, view, delete farms
 - Farm details: name, area, soil type, current crop
@@ -100,7 +100,7 @@ Smart Agriculture AI Platform solves 7 critical problems faced by Indian farmers
 
 ---
 
-## 🛠️ Tech Stack
+## -- Tech Stack --
 
 ### Frontend
 - **React.js 18** + **Tailwind CSS**
