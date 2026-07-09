@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const CORE_API_URL = 'http://localhost:8000'
+const CORE_API_URL = 'https://smartagricultureaiplatform.onrender.com'
 const AI_SERVICE_URL = 'http://localhost:8001'
 
 export const coreApi = axios.create({ baseURL: CORE_API_URL })
