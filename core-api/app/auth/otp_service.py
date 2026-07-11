@@ -22,7 +22,7 @@ def send_otp(phone: str) -> str:
     otp = generate_otp()
     redis_client.setex(_otp_key(phone), settings.OTP_EXPIRE_SECONDS, otp)
 
-    if settings.ENV == "production" and TwilioClient and settings.TWILIO_ACCOUNT_SID:
+    if TwilioClient and settings.TWILIO_ACCOUNT_SID and settings.TWILIO_AUTH_TOKEN and settings.TWILIO_FROM_NUMBER:
         client = TwilioClient(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
         client.messages.create(
             body=f"Your Smart Agriculture verification code is {otp}. Valid for 5 minutes.",
