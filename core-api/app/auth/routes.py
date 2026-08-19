@@ -21,12 +21,13 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     if existing:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Phone already registered")
 
+    phone = payload.phone.replace("+91", "").strip()
     user = User(
-        phone=payload.phone,
-        email=payload.email,
-        full_name=payload.full_name,
-        password_hash=hash_password(payload.password),
-        is_verified=True,
+    phone=phone,
+    email=payload.email,
+    full_name=payload.full_name,
+    password_hash=hash_password(payload.password),
+    is_verified=True,
     )
     db.add(user)
     db.commit()
@@ -38,7 +39,8 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
 
 @router.post("/verify-otp", response_model=UserOut)
 def verify_otp_route(payload: VerifyOtpRequest, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.phone == payload.phone).first()
+    phone = payload.phone.replace("+91", "").strip()
+    user = db.query(User).filter(User.phone == phone).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
     if user.is_verified:
@@ -66,7 +68,8 @@ def resend_otp(phone: str, db: Session = Depends(get_db)):
 
 @router.post("/login", response_model=TokenResponse)
 def login(payload: LoginRequest, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.phone == payload.phone).first()
+    phone = payload.phone.replace("+91", "").strip()
+    user = db.query(User).filter(User.phone == phone).first()
     if not user or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid phone or password")
     if not user.is_verified:
@@ -92,3 +95,5 @@ def refresh_token(payload: RefreshRequest, db: Session = Depends(get_db)):
         access_token=create_access_token(str(user.id), user.role),
         refresh_token=create_refresh_token(str(user.id), user.role),
     )
+
+
