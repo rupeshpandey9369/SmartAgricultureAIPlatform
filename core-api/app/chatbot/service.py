@@ -41,7 +41,7 @@ async def get_chat_response(message: str, history: list) -> str:
     messages.append({"role": "user", "content": message})
     
     payload = {
-        "model": "llama-3.1-8b-instant",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
         "messages": messages,
         "max_tokens": 512,
         "temperature": 0.7,
