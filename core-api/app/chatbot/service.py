@@ -41,7 +41,7 @@ async def get_chat_response(message: str, history: list) -> str:
     messages.append({"role": "user", "content": message})
     
     payload = {
-        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "model": "openai/gpt-oss-20b",
         "messages": messages,
         "max_tokens": 512,
         "temperature": 0.7,
